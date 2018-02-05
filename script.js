@@ -10,6 +10,11 @@ divList.push(newDiv);
 makeNewDiv();
 });//run div generator
 
+$( '#divsGoHere').on('click', '.delete', function(){
+  var thisDiv = $(this).data( 'id' );
+  var deletedDiv = divList.splice( thisDiv, 1);
+  makeNewDiv();
+});
 });
 
 
@@ -25,8 +30,8 @@ for( var i=0; i<divList.length; i++){
       appendingDiv += '<p class="counter">';
       appendingDiv += clickCount;
       appendingDiv += '</p>';
-      appendingDiv += '<button type="button" class= "swap">Swap</button> ';
-      appendingDiv += '<button type="button" class= "delete">Delete</button> ';
+      appendingDiv += '<button type="button" class= "swap" data-id ="' + i + '">Swap</button> ';
+      appendingDiv += '<button type="button" class= "delete" data-id= "' + i + '">Delete</button> ';
       appendingDiv += '</div>';
       arrayOfDiv.append(appendingDiv);
 }

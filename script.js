@@ -14,9 +14,13 @@ $( '#divsGoHere').on('click', '.delete', function(){
   var thisDiv = $(this).data( 'id' );
   var deletedDiv = divList.splice( thisDiv, 1);
   makeNewDiv();
-});
-});
+});//delete a Div
 
+$( 'div' ).on('click','.swap', function() {
+    $(this).toggleClass('colorChange');
+    console.log('in color swap');
+});
+});
 
 function makeNewDiv(divlist){
 console.log('in make new div');
@@ -26,7 +30,7 @@ arrayOfDiv.empty();
 
 for( var i=0; i<divList.length; i++){
 
-  var appendingDiv = '<div>';
+  var appendingDiv = '<div class= "colorChange">';
       appendingDiv += '<p class="counter">';
       appendingDiv += clickCount;
       appendingDiv += '</p>';
